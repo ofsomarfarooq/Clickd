@@ -2,14 +2,17 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" prefHeight="550.0" prefWidth="701.0" spacing="20.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.grabba.clickd.StartVsCom">
-   <AnchorPane prefHeight="570.0" prefWidth="700.0">
+   <AnchorPane prefHeight="570.0" prefWidth="700.0" styleClass="game-bg" stylesheets="@../../../styles/style.css">
       <children>
          <GridPane hgap="5" layoutX="178.0" layoutY="122.0" prefHeight="326.0" prefWidth="314.0" vgap="5">
             <columnConstraints>
@@ -22,55 +25,45 @@
                <RowConstraints percentHeight="33" />
                <RowConstraints percentHeight="33" />
             </rowConstraints>
-            <Button fx:id="b00"  prefHeight="100" prefWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <Button fx:id="b01"  prefHeight="100" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            <Button fx:id="b02"  prefHeight="100" prefWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-            <Button fx:id="b10"  prefHeight="100" prefWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <Button fx:id="b11"  prefHeight="100" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="b12"  prefHeight="100" prefWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button fx:id="b20"  prefHeight="100" prefWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <Button fx:id="b21"  prefHeight="100" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button fx:id="b22"  prefHeight="100" prefWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button fx:id="b00" prefHeight="100" prefWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Button fx:id="b01" prefHeight="100" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Button fx:id="b02" prefHeight="100" prefWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <Button fx:id="b10" prefHeight="100" prefWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Button fx:id="b11" prefHeight="100" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="b12" prefHeight="100" prefWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="b20" prefHeight="100" prefWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Button fx:id="b21" prefHeight="100" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="b22" prefHeight="100" prefWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="2" />
          </GridPane>
-         <Label fx:id="statusLabel" layoutX="228.0" layoutY="61.0" style="-fx-font-size: 18px;" text="Tic-Tac-Toe: Player X's turn" />
-         <Button layoutX="25.0" layoutY="27.0" onAction="#backToMain" prefHeight="21.0" prefWidth="89.0" text="&lt;" />
-         <Button fx:id="resetButton" layoutX="588.0" layoutY="27.0" onAction="#onReset" prefHeight="21.0" prefWidth="89.0" text="Reset Game" />
+         <ImageView fitHeight="129.0" fitWidth="156.0" layoutX="490.0" layoutY="433.0">
+            <image>
+               <Image url="@../../../images/board.png" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="136.0" fitWidth="149.0" layoutX="70.0" layoutY="429.0" nodeOrientation="RIGHT_TO_LEFT">
+            <image>
+               <Image url="@../../../images/board.png" />
+            </image>
+         </ImageView>
+         <Label layoutX="525.0" layoutY="462.0" text="RESET" textFill="WHITE">
+            <font>
+               <Font name="System Bold" size="30.0" />
+            </font>
+         </Label>
+         <Label layoutX="111.0" layoutY="462.0" text="Back" textFill="WHITE">
+            <font>
+               <Font name="System Bold" size="30.0" />
+            </font>
+         </Label>
+         <Button layoutX="68.0" layoutY="452.0" nodeOrientation="RIGHT_TO_LEFT" onAction="#backToMain" prefHeight="66.0" prefWidth="156.0" styleClass="game-btn" text="Back" textFill="WHITE">
+            <font>
+               <Font name="System Bold" size="31.0" />
+            </font></Button>
+         <Button fx:id="resetButton" layoutX="493.0" layoutY="452.0" onAction="#onReset" prefHeight="66.0" prefWidth="149.0" styleClass="game-btn" text="RESET" textFill="WHITE">
+            <font>
+               <Font name="System Bold" size="30.0" />
+            </font></Button>
+         <Label fx:id="statusLabel" layoutX="27.0" layoutY="23.0" style="-fx-font-size: 18px;" text="Tic-Tac-Toe: Player X's turn" />
       </children>
    </AnchorPane>
 </VBox>
-
-
-
-
-
-
-        <!--        <?xml version="1.0" encoding="UTF-8"?>-->
-<!--        <?import javafx.scene.control.*?>-->
-<!--        <?import javafx.scene.layout.*?>-->
-<!--<VBox xmlns="http://javafx.com/javafx"-->
-<!--      xmlns:fx="http://javafx.com/fxml"-->
-<!--      fx:controller="com.grabba.clickd.StartVsCom"-->
-<!--      spacing="10" alignment="CENTER">-->
-<!--<Label fx:id="statusLabel" text="Your turn!" />-->
-<!--<GridPane hgap="5" vgap="5">-->
-<!--   <Button fx:id="b00" minWidth="60" minHeight="60"/>-->
-<!--   <Button fx:id="b01" minWidth="60" minHeight="60" GridPane.columnIndex="1"/>-->
-<!--   <Button fx:id="b02" minWidth="60" minHeight="60" GridPane.columnIndex="2"/>-->
-<!--   <Button fx:id="b10" minWidth="60" minHeight="60" GridPane.rowIndex="1"/>-->
-<!--   <Button fx:id="b11" minWidth="60" minHeight="60" GridPane.rowIndex="1" GridPane.columnIndex="1"/>-->
-<!--   <Button fx:id="b12" minWidth="60" minHeight="60" GridPane.rowIndex="1" GridPane.columnIndex="2"/>-->
-<!--   <Button fx:id="b20" minWidth="60" minHeight="60" GridPane.rowIndex="2"/>-->
-<!--   <Button fx:id="b21" minWidth="60" minHeight="60" GridPane.rowIndex="2" GridPane.columnIndex="1"/>-->
-<!--   <Button fx:id="b22" minWidth="60" minHeight="60" GridPane.rowIndex="2" GridPane.columnIndex="2"/>-->
-<!--</GridPane>-->
-<!--<Button text="Reset" onAction="#onReset"/>-->
-<!--</VBox>-->
-
-
-
-
-
-
-
-
-

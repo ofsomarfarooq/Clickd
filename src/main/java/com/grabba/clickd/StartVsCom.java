@@ -9,8 +9,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.application.Platform;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,6 +22,10 @@ import java.util.List;
 import java.util.Random;
 
 public class StartVsCom {
+    private MediaPlayer tik = new MediaPlayer(new Media(getClass().getResource("/music/tic.mp3").toString()));
+    private MediaPlayer tok = new MediaPlayer(new Media(getClass().getResource("/music/tok.mp3").toString()));
+
+
     @FXML
     private Button b00, b01, b02, b10, b11, b12, b20, b21, b22;
     @FXML private Label statusLabel;
@@ -36,6 +44,9 @@ public class StartVsCom {
 
     private void handlePlayerMove(Button btn) {
         if (!playerTurn || gameOver || !btn.getText().isEmpty()) return;
+
+        tok.stop();
+        tik.play();
         btn.setText("X");
         updateBoard();
         if (checkWin('X')) {
@@ -54,12 +65,21 @@ public class StartVsCom {
     }
 
     private void computerMove() {
+
+
+
+
+
+
         List<Button> empty = new ArrayList<>();
         for (Button btn : getAllButtons()) {
             if (btn.getText().isEmpty()) empty.add(btn);
         }
         if (empty.isEmpty()) return;
         Button move = empty.get(new Random().nextInt(empty.size()));
+        tik.stop();
+        tok.play();
+
         move.setText("O");
         updateBoard();
         if (checkWin('O')) {
@@ -123,12 +143,12 @@ public class StartVsCom {
     @FXML
     public void backToMain(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("index.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/grabba/clickd/index.fxml"));
             Parent root = loader.load();
+            Scene scene = new Scene(root, 700, 570);
+            scene.getStylesheets().add(getClass().getResource("/styles/style.css").toExternalForm());
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Main Menu");
-            stage.show();
+            stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
         }

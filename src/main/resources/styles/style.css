@@ -1,3 +1,65 @@
-.pvpbtn {
+.btn{
+  -fx-margin-top: 10px;
+  -fx-width: 100%;
+  -fx-padding: 15px;
+    -fx-background-color: none;
+    -fx-background-image: url("../images/btn.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+  -fx-font-color: white;
+  -fx-font-size: 16px;
+  -fx-font-weight: bold;
+  -fx-border: 0;
+  -fx-cursor: pointer;
+  -fx-transition: 0.3s ease;
+    -fx-border: 0;
+}
 
+.btn:hover{
+  -fx-background-image: url("../images/btn-hover.png");
+}
+
+.index-bg{
+    -fx-background-image: url("../images/index-bg.gif");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+
+.game-bg{
+    -fx-background-image: url("../images/game-bg.png");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+.game-btn{
+    -fx-background-image: url("../images/game-btn.png");
+    -fx-background-color: none;
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+
+}
+.game-btn:hover{
+    -fx-background-image: url("../images/game-btn-hover.png");
+}
+
+.no-bg-btn{
+
+}
+
+.sherif-btn{
+    -fx-background-color: none;
+    -fx-background-image: url("../images/sheriff.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+.outlaw-btn{
+    -fx-background-color: none;
+    -fx-background-image: url("../images/outlaw.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
 }

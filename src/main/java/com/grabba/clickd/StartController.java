@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
@@ -16,6 +18,11 @@ import java.util.List;
 import java.util.Random;
 
 public class StartController{
+    private MediaPlayer tik = new MediaPlayer(new Media(getClass().getResource("/music/tic.mp3").toString()));
+    private MediaPlayer tok = new MediaPlayer(new Media(getClass().getResource("/music/tok.mp3").toString()));
+
+
+
 
 
     @FXML
@@ -68,7 +75,22 @@ public class StartController{
         }
 
         if (board[row][col] == '\0') {
-            board[row][col] = xTurn ? 'X' : 'O';
+
+            if (xTurn){
+                board[row][col] = 'X';
+                btn.getStyleClass().remove("no-bg-btn");
+                btn.getStyleClass().add("sherif-btn");
+                tok.stop();
+                tik.play();
+
+            } else {
+                board[row][col] = 'O';
+                btn.getStyleClass().remove("no-bg-btn");
+                btn.getStyleClass().add("outlaw-btn");
+                tik.stop();
+                tok.play();
+
+            }
             btn.setText(String.valueOf(board[row][col]));
             if (checkWin()) {
                 statusLabel.setText("Player " + (xTurn ? "X" : "O") + " wins!");
@@ -87,12 +109,12 @@ public class StartController{
     @FXML
     public void backToMain(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("index.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/grabba/clickd/index.fxml"));
             Parent root = loader.load();
+            Scene scene = new Scene(root, 700, 570);
+            scene.getStylesheets().add(getClass().getResource("/styles/style.css").toExternalForm());
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Main Menu");
-            stage.show();
+            stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -100,6 +122,43 @@ public class StartController{
 
     private void resetBoard() {
         board = new char[3][3];
+
+        btn00.getStyleClass().remove("sherif-btn");
+        btn00.getStyleClass().remove("outlaw-btn");
+        btn00.getStyleClass().add("no-bg-btn");
+
+        btn01.getStyleClass().remove("sherif-btn");
+        btn01.getStyleClass().remove("outlaw-btn");
+        btn01.getStyleClass().add("no-bg-btn");
+
+        btn02.getStyleClass().remove("sherif-btn");
+        btn02.getStyleClass().remove("outlaw-btn");
+        btn02.getStyleClass().add("no-bg-btn");
+
+        btn10.getStyleClass().remove("sherif-btn");
+        btn10.getStyleClass().remove("outlaw-btn");
+        btn10.getStyleClass().add("no-bg-btn");
+
+        btn11.getStyleClass().remove("sherif-btn");
+        btn11.getStyleClass().remove("outlaw-btn");
+        btn11.getStyleClass().add("no-bg-btn");
+
+        btn12.getStyleClass().remove("sherif-btn");
+        btn12.getStyleClass().remove("outlaw-btn");
+        btn12.getStyleClass().add("no-bg-btn");
+
+        btn20.getStyleClass().remove("sherif-btn");
+        btn20.getStyleClass().remove("outlaw-btn");
+        btn20.getStyleClass().add("no-bg-btn");
+
+        btn21.getStyleClass().remove("sherif-btn");
+        btn21.getStyleClass().remove("outlaw-btn");
+        btn21.getStyleClass().add("no-bg-btn");
+
+        btn22.getStyleClass().remove("sherif-btn");
+        btn22.getStyleClass().remove("outlaw-btn");
+        btn22.getStyleClass().add("no-bg-btn");
+
         btn00.setText("");
         btn01.setText("");
         btn02.setText("");
